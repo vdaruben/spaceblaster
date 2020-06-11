@@ -19,7 +19,7 @@ body {
 
 #spaceship {
     position: absolute;
-    height: 100px;
+    height: 110px;
     width: auto;
     padding-left: 20px;
     top: 50%;
@@ -28,6 +28,8 @@ body {
 }
 
 .bullet {
-    height: 10;
+    position: absolute;
+    height: 10px;
     width: auto;
+    left: 120px;
 }

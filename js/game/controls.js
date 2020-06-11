@@ -68,11 +68,11 @@ function shoot()
 {
     // create bullet img
     var bullet = document.createElement('img');
+    var offset_top = spaceship.offsetTop - 5;
+    bullet.style.top = offset_top + 'px';
     bullet.classList.add('bullet');
     bullet.src = 'sprites/bullets/green_bullet.png';
 
     // spanw on field
     playfield.appendChild(bullet);
-
-    // animate bullet
 }
