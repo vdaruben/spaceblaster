@@ -9,7 +9,7 @@ function start()
     hide(start_button);
 
     // make new spaceship object
-    var spaceship_object = new spaceship_blueprint('spaceship', 'sprite/spaceships/spaceship.png');
+    var spaceship_object = new spaceship_blueprint('spaceship', 'sprites/spaceships/spaceship.png');
 
     // create new img elemnt for ship
     var img = document.createElement('img');

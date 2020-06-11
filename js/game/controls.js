@@ -66,5 +66,13 @@ function moveDown()
 
 function shoot()
 {
+    // create bullet img
+    var bullet = document.createElement('img');
+    bullet.classList.add('bullet');
+    bullet.src = 'sprites/bullets/green_bullet.png';
 
+    // spanw on field
+    playfield.appendChild(bullet);
+
+    // animate bullet
 }
