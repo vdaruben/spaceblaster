@@ -49,7 +49,7 @@ function setSpaceshipControls()
 function moveUp()
 {
     var offset_top = spaceship.offsetTop;
-    if(offset_top >= 20)
+    if(offset_top >= -30)
     {
         spaceship.style.top = offset_top - 10 + 'px';
     }
@@ -58,7 +58,7 @@ function moveUp()
 function moveDown()
 {
     var offset_top = spaceship.offsetTop;
-    if(offset_top <= 580)
+    if(offset_top <= 520)
     {
         spaceship.style.top = offset_top + 10 + 'px';
     }
@@ -68,7 +68,7 @@ function shoot()
 {
     // create bullet img
     var bullet = document.createElement('img');
-    var offset_top = spaceship.offsetTop - 5;
+    var offset_top = spaceship.offsetTop + 50;
     bullet.style.top = offset_top + 'px';
     bullet.classList.add('bullet');
     bullet.src = 'sprites/bullets/green_bullet.png';

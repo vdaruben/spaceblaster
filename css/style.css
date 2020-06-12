@@ -22,14 +22,22 @@ body {
     height: 110px;
     width: auto;
     padding-left: 20px;
-    top: 50%;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
+    top: 250px;
+}
+
+#alien {
+    z-index: -2;
+    position: absolute;
+    height: 240px;
+    width: auto;
+    top: 150px;
+    right: 20px;
 }
 
 .bullet {
+    z-index: -1;
     position: absolute;
     height: 10px;
     width: auto;
-    left: 120px;
+    left: 100px;
 }

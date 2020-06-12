@@ -1,7 +1,6 @@
 class monster {
-    constructor(id, type, img) {
+    constructor(id, img) {
         this.id = id;
-        this.type = type;
         this.img = img;
     }
 }
