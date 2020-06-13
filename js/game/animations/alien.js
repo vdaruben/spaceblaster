@@ -28,4 +28,4 @@ setInterval(function(){
         alien.style.top = new_offset_top + 'px';
 
     }
-}, 50);
+}, 80);
