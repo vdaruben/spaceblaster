@@ -2,7 +2,7 @@ setInterval(function(){
     if(alien !== null)
     {
         var offset_top = alien.offsetTop + 80;
-        var offset_left = alien.offsetLeft;
+        var offset_left = alien.offsetLeft + 30;
 
         // create fireball img
         var fireball = document.createElement('img');
