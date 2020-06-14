@@ -2,8 +2,15 @@ setInterval(function(){
     var bullets = document.getElementsByClassName('bullet');
     for (var i = 0; i < bullets.length; i++) {
         var bullet = bullets.item(i);
-        var offset_left = bullet.offsetLeft + 10;
-        bullet.style.left = offset_left + 'px';
+        var offset_left = bullet.offsetLeft;
+        if(offset_left < 800)
+        {
+            bullet.style.left = offset_left + 10 + 'px';
 
+        }
+        else
+        {
+            bullet.remove();
+        }
     }
 }, 20);
