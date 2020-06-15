@@ -20,7 +20,7 @@ body {
 #spaceship {
     position: absolute;
     height: 110px;
-    width: auto;
+    width: 100px;
     padding-left: 20px;
     top: 250px;
 }

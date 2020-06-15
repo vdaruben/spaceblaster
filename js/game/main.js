@@ -11,7 +11,7 @@ function start()
 
     // make new spaceship object
     var spaceship_object = new spaceship_blueprint('spaceship', 'sprites/spaceships/spaceship.png');
-
+    
     // create new img elemnt for ship
     var img = document.createElement('img');
     img.id = spaceship_object.id;
