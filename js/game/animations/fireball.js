@@ -25,7 +25,10 @@ setInterval(function(){
         if(offset_left > -40)
         {
             var collision = collisionCheck(fireball, spaceship);
-            if(collision === true) console.log('fireball hits');
+            if(collision === true)
+            {
+                spaceship_state = 'hit';
+            }
             fireball.style.left = offset_left - 10 + 'px';
         }
         else

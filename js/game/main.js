@@ -11,14 +11,20 @@ function start()
 
     // make new spaceship object
     var spaceship_object = new spaceship_blueprint('spaceship', 'sprites/spaceships/spaceship.png');
-    
+
+    var span = document.createElement('span');
+    span.id = spaceship_object.id;
+    span.style.backgroundImage = "url('" + spaceship_object.img + "')";
+    span.style.backgroundPosition = ' 0px 0px';
+    playfield.appendChild(span);
+
     // create new img elemnt for ship
-    var img = document.createElement('img');
-    img.id = spaceship_object.id;
-    img.src = spaceship_object.img;
+    //var img = document.createElement('img');
+    //img.id = spaceship_object.id;
+    //img.src = spaceship_object.img;
 
     // set ship on screen
-    playfield.appendChild(img);
+    playfield.appendChild(span);
     spaceship = document.getElementById('spaceship');
 
     // set spaceship controls
