@@ -11,20 +11,13 @@ function start()
 
     // make new spaceship object
     var spaceship_object = new spaceship_blueprint('spaceship', 'sprites/spaceships/spaceship.png');
+    var spaceship_span = document.createElement('span');
+    spaceship_span.id = spaceship_object.id;
+    spaceship_span.style.backgroundImage = "url('" + spaceship_object.img + "')";
+    spaceship_span.style.backgroundPosition = ' 0px 0px';
 
-    var span = document.createElement('span');
-    span.id = spaceship_object.id;
-    span.style.backgroundImage = "url('" + spaceship_object.img + "')";
-    span.style.backgroundPosition = ' 0px 0px';
-    playfield.appendChild(span);
-
-    // create new img elemnt for ship
-    //var img = document.createElement('img');
-    //img.id = spaceship_object.id;
-    //img.src = spaceship_object.img;
-
-    // set ship on screen
-    playfield.appendChild(span);
+    // spanw spaceship
+    playfield.appendChild(spaceship_span);
     spaceship = document.getElementById('spaceship');
 
     // set spaceship controls
@@ -32,11 +25,12 @@ function start()
 
     // create alien element
     var alien_object = new monster('alien', 'sprites/monsters/alien.png')
-    var img2 = document.createElement('img');
-    img2.id = alien_object.id;
-    img2.src = alien_object.img;
+    var alien_span = document.createElement('span');
+    alien_span.id = alien_object.id;
+    alien_span.style.backgroundImage = "url('" + alien_object.img + "')";
+    alien_span.style.backgroundPosition = ' 0px 0px';
 
     // set alien on screen
-    playfield.appendChild(img2);
+    playfield.appendChild(alien_span);
     alien = document.getElementById('alien');
 }

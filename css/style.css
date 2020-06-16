@@ -29,7 +29,7 @@ body {
     z-index: -2;
     position: absolute;
     height: 240px;
-    width: auto;
+    width: 210px;
     top: 150px;
     right: 20px;
 }

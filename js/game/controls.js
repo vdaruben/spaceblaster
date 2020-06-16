@@ -28,7 +28,7 @@ function setSpaceshipControls()
         {
             moving_down = true;
         }
-        if(event.code === 'Space')
+        if(event.code === 'Space' && spaceship_state === 'flying')
         {
             shoot();
         }

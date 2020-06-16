@@ -6,7 +6,10 @@ setInterval(function(){
         if(offset_left < 800)
         {
             var collision = collisionCheck(bullet, alien);
-            if(collision === true) console.log('green bullet hits');
+            if(collision === true)
+            {
+                bullet.remove();
+            }
             bullet.style.left = offset_left + 10 + 'px';
         }
         else
