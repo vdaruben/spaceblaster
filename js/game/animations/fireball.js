@@ -1,21 +1,26 @@
-setInterval(function(){
-    if(alien !== null)
-    {
-        var offset_top = alien.offsetTop + 80;
-        var offset_left = alien.offsetLeft;
+var alien_auto_shoot;
 
-        // create fireball img
-        var fireball = document.createElement('img');
-        fireball.id = 'fireball';
-        fireball.classList.add('fireball');
-        fireball.src = 'sprites/bullets/fireball.png';
-        fireball.style.top = offset_top + 'px';
-        fireball.style.left = offset_left  + 30 + 'px';
+function setAlienAutoShootInterval()
+{
+    alien_auto_shoot = setInterval(function(){
+        if(alien !== null)
+        {
+            var offset_top = alien.offsetTop + 80;
+            var offset_left = alien.offsetLeft;
 
-        // set fireball on field
-        playfield.appendChild(fireball);
-    }
-}, 2000);
+            // create fireball img
+            var fireball = document.createElement('img');
+            fireball.id = 'fireball';
+            fireball.classList.add('fireball');
+            fireball.src = 'sprites/bullets/fireball.png';
+            fireball.style.top = offset_top + 'px';
+            fireball.style.left = offset_left  + 30 + 'px';
+
+            // set fireball on field
+            playfield.appendChild(fireball);
+        }
+    }, 2000);
+}
 
 setInterval(function(){
     var fireballs = document.getElementsByClassName('fireball');

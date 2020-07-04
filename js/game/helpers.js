@@ -8,12 +8,6 @@ function show(e)
     e.style.display = 'block';
 }
 
-function getRandomInt(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
 function collisionCheck(bullet, target)
 {
     var hitbox = target.getBoundingClientRect();
@@ -25,4 +19,11 @@ function collisionCheck(bullet, target)
         ((hitbox.x + hitbox.width) < hurtbox.x) ||
         (hitbox.x > (hurtbox.x + hurtbox.width))
     );
+}
+
+function clearScreenAndListeners()
+{
+    document.removeEventListener('keydown', startGame);
+    document.removeEventListener('keydown', respawn);
+    hide(menu_screen);
 }

@@ -9,8 +9,7 @@ var spaceship_animation_interval = setInterval(function(){
         }
         if(spaceship_state === 'hit')
         {
-            clearInterval(spaceship_animation_interval);
-            animateSpaceshipExplodes();
+            gameOver();
         }
     }
 }, 200);
@@ -31,20 +30,18 @@ function toggleFlyingSprite()
 
 function animateSpaceshipExplodes()
 {
-    spaceship.style.backgroundPosition = "-300px 0px";
-    setTimeout(function(){
-        spaceship.style.backgroundPosition = "-400px 0px";
-    }, 100);
-    setTimeout(function(){
-        spaceship.style.backgroundPosition = "-500px 0px";
-    }, 200);
-    setTimeout(function(){
-        spaceship.style.backgroundPosition = "-600px 0px";
-    }, 300);
-    setTimeout(function(){
-        spaceship.style.backgroundPosition = "-700px 0px";
-    }, 400);
-    setTimeout(function(){
+    spaceship.style.animation = 'spaceship-explodes 0.5s steps(5)';
+    spaceship.addEventListener('webkitAnimationEnd',function(e) {
+        spaceship.style.animation = '';
         spaceship.remove();
-    }, 500);
+    }, false);
+}
+
+function animateSpaceshipFlyAway()
+{
+    shoot_disabled = true;
+    spaceship.style.animation = 'spaceship-fly-away 1s ease-in';
+    spaceship.addEventListener('webkitAnimationEnd',function(e) {
+        spaceship.remove();
+    }, false);
 }

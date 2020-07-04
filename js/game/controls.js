@@ -1,5 +1,6 @@
 var moving_down = false;
 var moving_up = false;
+var shoot_disabled = false;
 
 setInterval(function(){
     move();
@@ -28,7 +29,7 @@ function setSpaceshipControls()
         {
             moving_down = true;
         }
-        if(event.code === 'Space' && spaceship_state === 'flying')
+        if(event.code === 'Space' && spaceship_state === 'flying' && shoot_disabled === false)
         {
             shoot();
         }

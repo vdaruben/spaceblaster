@@ -11,27 +11,119 @@ body {
     left: 50%;
     margin-top: -300px;
     margin-left: -400px;
-    background-color: rebeccapurple;
+    background-color: #400080;
     height: 600px;
     width: 800px;
     overflow: hidden;
+}
+
+/* title and menu screen css */
+
+#title-screen {
+    background-image: url(../sprites/menu/space_blaster.png);
+    position: relative;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+
+.fade-in-animation {
+    -webkit-animation: fadeIn 1s;
+    -moz-animation: fadeIn 1s;
+    -o-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+}
+
+@-webkit-keyframes fadeIn {
+    0%      { opacity: 0; }
+    100%    { opacity: 100; }
+}
+@-moz-keyframes fadeIn {
+    0%      { opacity: 0; }
+    100%    { opacity: 100; }
+}
+@-o-keyframes fadeIn {
+    0%      { opacity: 0; }
+    100%    { opacity: 100; }
+}
+@keyframes fadeIn {
+    0%      { opacity: 0; }
+    100%    { opacity: 100; }
 }
 
 #spaceship {
     position: absolute;
     height: 110px;
     width: 100px;
-    margin-left: 20px;
+    margin-left: -100px;
     top: 250px;
 }
+
+@keyframes spaceship-slide-in-screen {
+    0%   {margin-left: -100px;}
+    100% {margin-left: 20px;}
+}
+
+@keyframes spaceship-explodes {
+    0%   {background-position: -300px 0;}
+    100% {background-position: -800px 0;}
+}
+
+@keyframes spaceship-fly-away {
+    0%   {margin-left: 20px;}
+    100% {margin-left: 800px;}
+}
+
+.menu-item {
+    position: absolute;
+    display: block;
+    left:0;
+    right:0;
+    margin: 0 auto;
+    padding-bottom: 20px;
+}
+
+#menu-start {
+    top: 120px;
+}
+
+#menu-controls {
+    top: 320px;
+}
+
+.menu-selected {
+    border-bottom: 20px solid white;
+}
+
+#game-over-screen {
+    top: 30px;
+    z-index: 100;
+    height: 400px;
+    width: 800px;
+    position: absolute;
+    background-image: url(../sprites/menu/game_over.png);
+}
+
+/* game css */
 
 #alien {
     z-index: -2;
     position: absolute;
     height: 240px;
     width: 210px;
-    top: 150px;
-    right: 20px;
+    top: 200px;
+    right: -210px;
+}
+
+@keyframes alien-slide-in-screen {
+    0%   {right: -200px;}
+    100% {right: 20px;}
+}
+
+@keyframes alien-explodes {
+    0%   {background-position: -630px 0;}
+    100% {background-position: -3150px 0;}
 }
 
 .bullet {
@@ -47,4 +139,21 @@ body {
     position: absolute;
     height: 30px;
     width: auto;
+}
+
+#alien-healthbar {
+    z-index: -100;
+    position: absolute;
+    width: 400px;
+    height: 20px;
+    top: 20px;
+    left: 190px;
+    border: 10px solid #1a0033;
+    background-color: #6600cc;
+}
+
+#alien-health-progression {
+    height: 20px;
+    width: 0; /* max 400px */
+    background-color: #009999;
 }

@@ -23,20 +23,25 @@
 
 <body>
 
-<div id="wall_and_table_border" ></div>
-
-<div id="computer_screen"></div>
-
 <div id="playfield">
-    <button id="start" onclick="start()">start</button>
+    <div id='title-screen'></div>
+    <div id='menu-screen' style='display:none'>
+        <img id='menu-start' class='menu-selected menu-item' src="sprites/menu/menu_start.png">
+        <img id='menu-controls' class='menu-item' src="sprites/menu/menu_controls.png">
+        <img id='controls' src="sprites/menu/controls.png" style="display: none">
+    </div>
+    <div id="alien-healthbar" style="display: none">
+        <div id="alien-health-progression"></div>
+    </div>
+    <div id="game-over-screen" class="fade-in-animation" style="display: none"></div>
 </div>
 
 <div id="screen_border"></div>
 
 <script src="js/vendor/modernizr-3.11.2.min.js"></script>
 <script src="js/plugins.js"></script>
-<script src="js/main.js"></script>
 
+<script src="js/game/menu.js"></script>
 <script src="js/game/main.js"></script>
 <script src="js/game/helpers.js"></script>
 <script src="js/game/entities/spaceship_blueprint.js"></script>

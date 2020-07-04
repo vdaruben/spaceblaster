@@ -1,36 +1,90 @@
-var start_button = document.getElementById('start');
 var playfield = document.getElementById('playfield');
-var playfield_width = 800;
-var playfield_height = 600;
+var title_screen = document.getElementById('title-screen');
 var spaceship = null;
 var alien = null;
+var  alien_healthbar = document.getElementById('alien-healthbar');
 
-function start()
+window.onload = showTitleScreen();
+
+function showTitleScreen()
 {
-    hide(start_button);
+    title_screen.classList.add('fade-in-animation');
+    document.addEventListener('keydown', showMenu);
+}
 
-    // make new spaceship object
+function startGame()
+{
+    hide(game_over_screen);
+    clearScreenAndListeners();
+    spawnSpaceship();
+    spawnAlien();
+    countDown();
+}
+
+function spawnSpaceship()
+{
     var spaceship_object = new spaceship_blueprint('spaceship', 'sprites/spaceships/spaceship.png');
     var spaceship_span = document.createElement('span');
     spaceship_span.id = spaceship_object.id;
-    spaceship_span.style.backgroundImage = "url('" + spaceship_object.img + "')";
+    spaceship_span.style.backgroundImage = "url('" + spaceship_object.sprite + "')";
     spaceship_span.style.backgroundPosition = ' 0px 0px';
 
-    // spanw spaceship
     playfield.appendChild(spaceship_span);
     spaceship = document.getElementById('spaceship');
 
-    // set spaceship controls
-    setSpaceshipControls();
+    setTimeout(function(){
+        spaceship.style.animation = 'spaceship-slide-in-screen 0.5s steps(12)';
+    },1000);
+    spaceship.addEventListener('webkitAnimationEnd',function(e) {
+        spaceship.style.animation = '';
+        spaceship.style.marginLeft = '20px';
+    }, false);
+    shoot_disabled = false;
 
-    // create alien element
+}
+
+function spawnAlien()
+{
     var alien_object = new monster('alien', 'sprites/monsters/alien.png')
     var alien_span = document.createElement('span');
     alien_span.id = alien_object.id;
-    alien_span.style.backgroundImage = "url('" + alien_object.img + "')";
+    alien_span.style.backgroundImage = "url('" + alien_object.sprite + "')";
     alien_span.style.backgroundPosition = ' 0px 0px';
 
-    // set alien on screen
     playfield.appendChild(alien_span);
+    show(alien_healthbar);
     alien = document.getElementById('alien');
+
+    setTimeout(function(){
+        alien.style.animation = 'alien-slide-in-screen 1s steps(20)';
+    },2000);
+    alien.addEventListener('webkitAnimationEnd',function(e) {
+        alien.style.animation = '';
+        alien.style.right = '20px';
+    }, false);
+}
+
+function countDown()
+{
+    setTimeout(function(){
+        setSpaceshipControls();
+        setAlienMovementInterval();
+        setAlienAutoShootInterval();
+        shoot_disabled = false;
+    },4000);
+}
+
+function endGame()
+{
+    clearInterval(animate_tentacles_interval);
+    animateAlienExplodes();
+    clearScreenAndListeners();
+    animateSpaceshipFlyAway();
+    show(game_over_screen);
+    game_over_screen.addEventListener("animationend", function() {
+        game_over_screen.style.height = '600px';
+        document.addEventListener('keydown', function(){
+            location.reload();
+        });
+    }, false);
 }

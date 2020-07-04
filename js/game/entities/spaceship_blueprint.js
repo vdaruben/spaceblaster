@@ -1,6 +1,6 @@
 class spaceship_blueprint {
-    constructor(id, img) {
+    constructor(id, sprite) {
         this.id = id;
-        this.img = img;
+        this.sprite = sprite;
     }
 }
