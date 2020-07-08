@@ -31,6 +31,9 @@ function toggleFlyingSprite()
 function animateSpaceshipExplodes()
 {
     spaceship.style.animation = 'spaceship-explodes 0.5s steps(5)';
+    spaceship.addEventListener('webkitAnimationStart',function(e) {
+        playSoundEffect('sound/spaceshipExplodes.wav');
+    }, false);
     spaceship.addEventListener('webkitAnimationEnd',function(e) {
         spaceship.style.animation = '';
         spaceship.remove();

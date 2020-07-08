@@ -23,7 +23,6 @@ function setAlienMovementInterval()
             if(alien_direction === 'down')
             {
                 new_offset_top = offset_top + 10;
-
             }
             else if(alien_direction === 'up')
             {
@@ -98,8 +97,11 @@ function animateAlienExplodes()
 {
     clearInterval(alien_auto_shoot);
     alien.style.animation = 'alien-explodes 2s steps(12)';
+    alien.addEventListener('webkitAnimationStart',function(e) {
+        playSoundEffect('sound/alienExplodes.wav');
+        backgroundMusic.pause();
+    }, false);
     alien.addEventListener('webkitAnimationEnd',function(e) {
         alien.remove();
-        endGame();
     }, false);
 }

@@ -3,6 +3,8 @@ var game_over_screen = document.getElementById('game-over-screen');
 
 function showMenu()
 {
+    playSoundEffect('sound/button-press.mp3');
+    playMenuSong('sound/game.mp3');
     hide(title_screen);
     show(menu_screen);
     document.removeEventListener('keydown',showMenu);
@@ -23,6 +25,7 @@ function navigateMenu(e)
 
 function switchMenuSelection()
 {
+    playSoundEffect('sound/button-press.mp3');
     var menu_items = document.getElementsByClassName('menu-item');
     for(i = 0; i < menu_items.length; i++)
     {
@@ -39,6 +42,7 @@ function switchMenuSelection()
 
 function checkMenuSelection()
 {
+    playSoundEffect('sound/button-press.mp3');
     document.removeEventListener('keydown',navigateMenu);
     var selected_menu = document.getElementsByClassName('menu-selected')[0].id;
     switch(selected_menu) {
@@ -73,6 +77,7 @@ function gameOver()
 
 function respawn()
 {
+    playSoundEffect('sound/button-press.mp3');
     spaceship = null;
     hide(game_over_screen);
     clearScreenAndListeners();
@@ -81,5 +86,5 @@ function respawn()
     resetAlienHealth();
     setTimeout(function(){
         setAlienAutoShootInterval();
-    },2000);
+    },1000);
 }

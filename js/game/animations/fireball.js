@@ -18,6 +18,8 @@ function setAlienAutoShootInterval()
 
             // set fireball on field
             playfield.appendChild(fireball);
+
+            playSoundEffect('sound/fireball.mp3');
         }
     }, 2000);
 }

@@ -108,7 +108,7 @@ body {
 /* game css */
 
 #alien {
-    z-index: -2;
+    z-index: -1;
     position: absolute;
     height: 240px;
     width: 210px;
@@ -127,11 +127,10 @@ body {
 }
 
 .bullet {
-    z-index: -1;
+    z-index: -2;
     position: absolute;
     height: 10px;
     width: auto;
-    left: 100px;
 }
 
 .fireball {

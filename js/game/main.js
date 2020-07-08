@@ -2,7 +2,7 @@ var playfield = document.getElementById('playfield');
 var title_screen = document.getElementById('title-screen');
 var spaceship = null;
 var alien = null;
-var  alien_healthbar = document.getElementById('alien-healthbar');
+var alien_healthbar = document.getElementById('alien-healthbar');
 
 window.onload = showTitleScreen();
 
@@ -14,6 +14,9 @@ function showTitleScreen()
 
 function startGame()
 {
+    playSoundEffect('sound/button-press.mp3');
+    backgroundMusic.pause();
+    playSoundEffect('sound/pre-play.mp3');
     hide(game_over_screen);
     clearScreenAndListeners();
     spawnSpaceship();
@@ -71,7 +74,8 @@ function countDown()
         setAlienMovementInterval();
         setAlienAutoShootInterval();
         shoot_disabled = false;
-    },4000);
+        playMenuSong('sound/playing.mp3');
+    },3750);
 }
 
 function endGame()

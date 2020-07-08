@@ -13,6 +13,9 @@ function collisionCheck(bullet, target)
     var hitbox = target.getBoundingClientRect();
     var hurtbox = bullet.getBoundingClientRect();
 
+    // make hitbox smalle for alien
+    hitbox.x = hitbox.x + 40;
+
     return !(
         ((hitbox.y + hitbox.height) < (hurtbox.y)) ||
         (hitbox.y > (hurtbox.y + hurtbox.height)) ||

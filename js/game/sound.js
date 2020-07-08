@@ -1,11 +1,14 @@
-function playBackgroundSong()
+var backgroundMusic = null;
+
+function playMenuSong(audio_file)
 {
-    var audio = new Audio('sound/theme_song.mp3');
-    audio.addEventListener('ended', function() {
+    backgroundMusic = document.createElement("audio");
+    backgroundMusic.src = audio_file;
+    backgroundMusic.addEventListener('ended', function() {
         this.currentTime = 0;
         this.play();
     }, false);
-    audio.play();
+    backgroundMusic.play();
 }
 
 function playSoundEffect(audio_file)
@@ -13,7 +16,7 @@ function playSoundEffect(audio_file)
     var audio = document.createElement("audio");
     audio.src = audio_file;
     audio.addEventListener("ended", function () {
-        document.removeChild(this);
+        this.remove();
     }, false);
     audio.play();
 }

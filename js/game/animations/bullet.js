@@ -8,7 +8,6 @@ setInterval(function(){
             var collision = collisionCheck(bullet, alien);
             if(collision === true)
             {
-                animateAlienExplodes();
                 if(alien_hits < 400)
                 {
                     animateAlienOnHitWhiteFlicker();

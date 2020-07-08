@@ -31,6 +31,7 @@ function setSpaceshipControls()
         }
         if(event.code === 'Space' && spaceship_state === 'flying' && shoot_disabled === false)
         {
+            if (event.repeat) { return }
             shoot();
         }
     }, false);
@@ -67,10 +68,13 @@ function moveDown()
 
 function shoot()
 {
+    playSoundEffect('sound/shoot.mp3');
     // create bullet img
     var bullet = document.createElement('img');
     var offset_top = spaceship.offsetTop + 50;
+    var offset_left = spaceship.offsetLeft;
     bullet.style.top = offset_top + 'px';
+    bullet.style.left = offset_left + 100 + 'px';
     bullet.classList.add('bullet');
     bullet.src = 'sprites/bullets/green_bullet.png';
 
