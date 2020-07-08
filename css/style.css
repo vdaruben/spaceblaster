@@ -6,6 +6,7 @@ body {
 /* in-game css */
 
 #playfield {
+    background-image: url(../sprites/background/background.png);
     position: fixed;
     top: 50%;
     left: 50%;
@@ -147,7 +148,7 @@ body {
     height: 20px;
     top: 20px;
     left: 190px;
-    border: 10px solid #1a0033;
+    border: 10px solid dimgrey;
     background-color: #6600cc;
 }
 
